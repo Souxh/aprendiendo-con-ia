@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+
+actor Usuario
+
+rectangle "Aprendiendo con IA" {
+  usecase "Consultar página principal" as UC1
+  usecase "Explorar herramientas de IA" as UC2
+  usecase "Consultar ejemplos" as UC3
+  usecase "Consultar consejos" as UC4
+  usecase "Realizar cuestionario" as UC5
+  usecase "Responder preguntas" as UC6
+  usecase "Consultar resultados" as UC7
+}
+
+Usuario --> UC1
+Usuario --> UC2
+Usuario --> UC3
+Usuario --> UC4
+Usuario --> UC5
+Usuario --> UC6
+Usuario --> UC7
+
+UC5 .> UC6 : <<include>>
+UC5 .> UC7 : <<include>>
+
+@enduml

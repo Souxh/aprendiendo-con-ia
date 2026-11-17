@@ -1,0 +1,27 @@
+@startuml
+
+start
+
+:Ingresar a la plataforma;
+:Seleccionar módulo de evaluación;
+:Iniciar cuestionario;
+
+while (¿Existen preguntas pendientes?) is (Sí)
+  :Mostrar pregunta;
+  :Seleccionar respuesta;
+  :Guardar respuesta;
+endwhile (No)
+
+:Verificar respuestas;
+:Calcular puntuación;
+:Mostrar resultado;
+
+if (¿Desea volver a intentarlo?) then (Sí)
+  :Reiniciar cuestionario;
+else (No)
+  :Regresar a la página principal;
+endif
+
+stop
+
+@enduml

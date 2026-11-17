@@ -1,0 +1,64 @@
+@startuml
+
+class Plataforma {
+  - nombre: String
+  - descripcion: String
+  + mostrarInicio()
+  + navegarModulos()
+}
+
+class Modulo {
+  - id: int
+  - nombre: String
+  - descripcion: String
+  + mostrarContenido()
+}
+
+class HerramientaIA {
+  - nombre: String
+  - funcion: String
+  - caracteristicas: String
+  + mostrarInformacion()
+}
+
+class Ejemplo {
+  - id: int
+  - titulo: String
+  - instruccion: String
+  + mostrarEjemplo()
+}
+
+class Consejo {
+  - id: int
+  - descripcion: String
+  + mostrarConsejo()
+}
+
+class Cuestionario {
+  - id: int
+  - titulo: String
+  + iniciar()
+  + calcularResultado()
+}
+
+class Pregunta {
+  - id: int
+  - texto: String
+  + mostrarPregunta()
+}
+
+class Resultado {
+  - puntuacion: int
+  - mensaje: String
+  + mostrarResultado()
+}
+
+Plataforma "1" *-- "4" Modulo
+Modulo "1" o-- "*" HerramientaIA
+Modulo "1" o-- "*" Ejemplo
+Modulo "1" o-- "*" Consejo
+Modulo "1" o-- "1" Cuestionario
+Cuestionario "1" *-- "*" Pregunta
+Cuestionario "1" --> "0..*" Resultado
+
+@enduml

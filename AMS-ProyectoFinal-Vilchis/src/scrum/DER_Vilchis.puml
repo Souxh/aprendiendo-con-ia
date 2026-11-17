@@ -1,0 +1,51 @@
+@startuml
+title Diagrama Entidad-Relación - Aprendiendo con IA
+
+entity Modulo {
+  * id_modulo : INT <<PK>>
+  --
+  nombre : VARCHAR
+  descripcion : TEXT
+}
+
+entity Herramienta_IA {
+  * id_herramienta : INT <<PK>>
+  --
+  nombre : VARCHAR
+  descripcion : TEXT
+  funcion : TEXT
+  categoria : VARCHAR
+  id_modulo : INT <<FK>>
+}
+
+entity Ejemplo {
+  * id_ejemplo : INT <<PK>>
+  --
+  titulo : VARCHAR
+  instruccion : TEXT
+  explicacion : TEXT
+  id_modulo : INT <<FK>>
+}
+
+entity Pregunta {
+  * id_pregunta : INT <<PK>>
+  --
+  texto_pregunta : TEXT
+  explicacion : TEXT
+  id_modulo : INT <<FK>>
+}
+
+entity Respuesta {
+  * id_respuesta : INT <<PK>>
+  --
+  texto_respuesta : TEXT
+  es_correcta : BOOLEAN
+  id_pregunta : INT <<FK>>
+}
+
+Modulo ||--o{ Herramienta_IA : contiene
+Modulo ||--o{ Ejemplo : incluye
+Modulo ||--o{ Pregunta : organiza
+Pregunta ||--o{ Respuesta : tiene
+
+@enduml
